@@ -42,7 +42,8 @@
       @change="pickFile(index_number)"
       type="file"
       style="display:none">
-    <input ref="fileInput" style="display:none" type="file" accept="image/*" multiple="multiple" @change="previewMultiImage" class="form-control-file" id="my-file">
+    <input ref="fileInput" v-if="multiple" style="display:none" type="file" accept="image/*" multiple  @change="previewMultiImage" class="form-control-file" id="my-file">
+    <input ref="fileInput" v-else style="display:none" type="file" accept="image/*"  @change="previewMultiImage" class="form-control-file" id="my-file">
 </template>
 
 <script>
@@ -93,6 +94,10 @@ export default {
         borderColor:{
             type: String,
             default: ''
+        },
+        multiple:{
+            type:Boolean,
+            default:true
         }
     },
     computed: {

@@ -1,7 +1,17 @@
 <template>
   <div class="home">
     <form @submit.prevent="uploadForm">
-      <MultiImagePicker bgColor="black" borderColor="blue" textColor="white" liveImageURL="http://192.168.202.90:3000/uploads/" deleteURL="http://192.168.202.90:3000/delete-image/" dataURL="http://192.168.202.90:3000/muqeet/" :data_id="data_id" v-model="form_data.image"/>
+      <MultiImagePicker 
+        bgColor="black"
+        borderColor="blue" 
+        textColor="white" 
+        liveImageURL="http://192.168.202.90:3000/uploads/" 
+        deleteURL="http://192.168.202.90:3000/delete-image/" 
+        dataURL="http://192.168.202.90:3000/muqeet/" 
+        :data_id="data_id" 
+        :multiple="true"
+        v-model="form_data.image"
+      />
       <div v-if="loader" class="loader-div">
         <loader  />
       </div>
